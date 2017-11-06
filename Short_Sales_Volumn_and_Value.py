@@ -1,12 +1,14 @@
 
 ### 當日融券賣出與借券賣出成交量值 
 ### Short Sales Volume and Value
+"""
 save_path = path
 date = '20171030'
-
 ShortSalesVolumnValue(save_path, date)
-
+"""
 def ShortSalesVolumnValue(save_path, date):
+    import requests
+    import pandas as pd
     # Path def
     #date = '20171027'
     url = 'http://www.tse.com.tw/exchangeReport/TWTASU?response=csv&date=' + date
@@ -68,3 +70,29 @@ def ShortSalesVolumnValue(save_path, date):
     print(tmp_path)     
     m.to_csv(tmp_path, sep=',')
     print('Save 當日融券賣出與借券賣出成交量值 :',('').join(File_date))
+
+
+
+#############
+
+#
+import datetime
+import time
+import random
+ww = datetime.datetime.now() - datetime.timedelta(days = 1)
+ww2 = ww.strftime('%Y%m%d')
+print(ww2)
+#
+ww2 = '20171106'
+ShortSalesVolumnValue(r'C:\Users\Meteor\Desktop\Stock\Rawdata\當日融券賣出與借券賣出成交量值\\',ww2)
+#
+for i in range(360, 1000):
+    ww = datetime.datetime.now() - datetime.timedelta(days = i)
+    query_date = ww.strftime('%Y%m%d')
+    #print(query_date)
+    try:
+        ShortSalesVolumnValue(r'C:\Users\Meteor\Desktop\Stock\Rawdata\當日融券賣出與借券賣出成交量值\\',query_date)
+        time.sleep(random.randint(5,9))
+    except:
+        print(i, '|', query_date)
+        pass
