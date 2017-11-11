@@ -74,8 +74,11 @@ def ShortSalesVolumnValue(save_path, date):
 
 
 #############
+ww2 = '20171110'
+ShortSalesVolumnValue(r'C:\Users\Meteor\Desktop\Stock\Rawdata\當日融券賣出與借券賣出成交量值\\',ww2)
 
 #
+"""
 import datetime
 import time
 import random
@@ -83,10 +86,10 @@ ww = datetime.datetime.now() - datetime.timedelta(days = 1)
 ww2 = ww.strftime('%Y%m%d')
 print(ww2)
 #
-ww2 = '20171106'
+ww2 = '20171107'
 ShortSalesVolumnValue(r'C:\Users\Meteor\Desktop\Stock\Rawdata\當日融券賣出與借券賣出成交量值\\',ww2)
 #
-for i in range(360, 1000):
+for i in range(454, 1000):
     ww = datetime.datetime.now() - datetime.timedelta(days = i)
     query_date = ww.strftime('%Y%m%d')
     #print(query_date)
@@ -96,3 +99,4 @@ for i in range(360, 1000):
     except:
         print(i, '|', query_date)
         pass
+"""
